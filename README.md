@@ -1,37 +1,51 @@
-comex.
-A premium creative development studio portfolio — built as a single, self-contained HTML file with zero build steps.
 
-Live Preview
-Deploy to any static host (GitHub Pages, Netlify, Vercel) by simply uploading index.html.
 
-Features
-Interactive Particle Mesh with mouse-repelling physics
-3D Hero Card with real-time perspective tilt
-Character-Animated Title with shifting gradient
-Infinite Marquee services band
-Custom Cursor with hover state expansion
-Magnetic Buttons that follow the cursor
-Mouse-Following Glow across hero section
-Dark / Light Theme with localStorage persistence
-Scroll Progress Bar
-Scroll-Triggered Reveal Animations
-Animated SVG Skill Rings with count-up
-Stats Counter with easing
-Project Filter with pop-in transitions
-Testimonials Carousel with auto-play
-Form Validation with toast notifications
-Noise Texture Overlay
-Fully Responsive (4 breakpoints)
-Accessible (skip link, ARIA, focus-visible, reduced-motion)
-Touch Aware (disables cursor effects on mobile)
-Tech Stack
-Vanilla HTML5, CSS3, JavaScript
-Google Fonts (Syne + Space Grotesk)
-FontAwesome 6 icons
-No frameworks, no build tools, no dependencies
-Setup
-git clone https://github.com/firaseth/comex-portfolio.git# Open index.html in any browser
-Deployment
-GitHub Pages — Push to main, enable Pages in settings
-Netlify — Drag and drop the folder
-Vercel — Import the repo, zero config
+Live SiteLicense: MITNo DependenciesZero Build Steps
+A premium creative development studio portfolio — single-file, zero build steps, maximum impact.
+
+
+Live Demo  ·  Report Bug  ·  Request Feature
+
+
+Preview
+Hero section with character animation and particle background
+
+What Makes It Different
+Most portfolio templates are cookie-cutter. This one is built to match the visual standard of Awwwards-level sites — with zero frameworks and a single HTML file.
+
+Feature	Detail
+Particle Mesh	Canvas-based system with 75 particles, mouse-repel physics, and proximity connection lines
+3D Hero Card	Real-time perspective + rotateX/Y tilt tracking cursor position, with 6 parallax floating elements
+Character Animation	Per-letter staggered entrance with rotateX flip, synced after splash screen dismiss
+Infinite Marquee	Horizontal auto-scrolling services band that pauses on hover
+Mouse-Following Glow	700px radial gradient that tracks cursor across the hero section
+Custom Cursor	Dual-layer (outer ring + inner dot) with lerp smoothing and hover expansion
+Magnetic Buttons	Every interactive element subtly shifts toward cursor position
+Dark / Light Theme	Full theme system via CSS variables + data-theme attribute, persisted in localStorage
+Scroll Progress	Glowing 2px accent bar at viewport top with box-shadow
+Scroll Reveals	IntersectionObserver-driven staggered fade-up animations with cubic-bezier easing
+Skill Rings	SVG stroke-dashoffset animation with synchronized percentage counter
+Stats Counter	Eased count-up (cubic out) triggered on scroll into view
+Project Filters	Category-based show/hide with scale pop-in transition
+Testimonials Carousel	Auto-play (5s interval), dot navigation, arrow controls
+Form Validation	Real-time inline errors + slide-in toast notification system
+Noise Overlay	Inline SVG feTurbulence filter for analog texture depth
+Giant X Watermark	Stroked decorative letter behind hero for visual identity
+Pulsing Badge	"Available for projects" status with CSS keyframe pulse ring
+Architecture
+comex-portfolio/
+├── .github/
+│ ├── FUNDING.yml ← Sponsor button
+│ └── workflows/
+│ └── deploy.yml ← Auto-deploy to GitHub Pages
+├── .gitignore ← OS & editor junk filter
+├── LICENSE ← MIT
+├── README.md ← This file
+├── assets/
+│ ├── banner.svg ← Repo social preview image
+│ └── screenshot-hero.png ← Hero section screenshot
+├── favicon.svg ← Browser tab icon (green dot on c)
+├── humans.txt ← Team & tech credits
+├── index.html ← The entire application (single file)
+├── manifest.json ← PWA install support
+└── package.json ← Project metadata & scripts
