@@ -1,4 +1,4 @@
-# Comex — Creative Development Studio
+# Comex — Creative AI Development Studio
 
 <div align="center">
   <img src="assets/banner.png" alt="Comex Banner" width="100%" />
