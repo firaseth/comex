@@ -7,7 +7,7 @@
 <br />
 
 <div align="center">
-  <strong>A premium creative development studio portfolio — highly optimized, modular structure, maximum impact.</strong>
+  <strong>A premium creative development studio  — highly optimized, modular structure, maximum impact.</strong>
 </div>
 <br />
 
@@ -21,7 +21,7 @@
 
 ## 🌟 Overview
 
-Comex is a premium portfolio template built to match the visual standards of Awwwards-level sites. It achieves a high-end, futuristic aesthetic using **zero frameworks** and minimal dependencies. Everything is meticulously crafted with Vanilla HTML5, CSS3, and JavaScript to guarantee maximum performance and seamless interactive experiences.
+Comex is a premium creative development studio  built to match the visual standards of Awwwards-level sites. It achieves a high-end, futuristic aesthetic using **zero frameworks** and minimal dependencies. Everything is meticulously crafted with Vanilla HTML5, CSS3, and JavaScript to guarantee maximum performance and seamless interactive experiences.
 
 ## ✨ Key Features
 
