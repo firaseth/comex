@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="gradElena" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E89D" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#gradElena)" stroke="#EDEDF4" stroke-width="2" />
+  <text x="60" y="68" font-family="'Syne', sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#EDEDF4" letter-spacing="-1">EK</text>
+  <circle cx="90" cy="30" r="8" fill="#FFD166" />
+</svg>

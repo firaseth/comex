@@ -113,20 +113,42 @@
             <div class="float-el plus-1" data-depth="1.0" style="--rot:0deg"></div>
             <div class="float-el diamond-1" data-depth="0.9" style="--rot:45deg"></div>
             <div class="hero-card">
-              <div class="card-header">
-                <span class="card-dot red"></span>
-                <span class="card-dot yellow"></span>
-                <span class="card-dot green"></span>
-                <span class="card-filename">comex.config.ts</span>
+              <div class="card-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--border);">
+                <div style="display: flex; gap: 6px;">
+                  <span class="card-dot red"></span>
+                  <span class="card-dot yellow"></span>
+                  <span class="card-dot green"></span>
+                </div>
+                <div class="card-tabs" style="display: flex; gap: 12px; margin-left: 20px;">
+                  <button class="card-tab active" data-tab="config" style="font-size: 0.72rem; color: var(--accent); font-family: monospace; border: none; background: none; cursor: pointer; opacity: 1;">comex.config.ts</button>
+                  <button class="card-tab" data-tab="services" style="font-size: 0.72rem; color: var(--text-muted); font-family: monospace; border: none; background: none; cursor: pointer; opacity: 0.7; transition: opacity 0.3s;">services.json</button>
+                  <button class="card-tab" data-tab="team" style="font-size: 0.72rem; color: var(--text-muted); font-family: monospace; border: none; background: none; cursor: pointer; opacity: 0.7; transition: opacity 0.3s;">team.js</button>
+                </div>
               </div>
-              <div class="card-body">
-                <div class="code-line"><span class="kw">const</span> <span class="var">studio</span> <span class="punc">=</span> <span class="punc">{</span></div>
-                <div class="code-line">&nbsp;&nbsp;name<span class="punc">:</span> <span class="str">"comex"</span><span class="punc">,</span></div>
-                <div class="code-line">&nbsp;&nbsp;focus<span class="punc">:</span> <span class="str">"Creative Development"</span><span class="punc">,</span></div>
-                <div class="code-line">&nbsp;&nbsp;stack<span class="punc">:</span> <span class="punc">[</span><span class="str">"React"</span><span class="punc">,</span> <span class="str">"Three.js"</span><span class="punc">,</span> <span class="str">"Node"</span><span class="punc">],</span></div>
-                <div class="code-line">&nbsp;&nbsp;mission<span class="punc">:</span> <span class="str">"Craft the extraordinary"</span><span class="punc">,</span></div>
-                <div class="code-line">&nbsp;&nbsp;available<span class="punc">:</span> <span class="bool">true</span></div>
-                <div class="code-line"><span class="punc">}</span><span class="punc">;</span></div>
+              <div class="card-body" style="position: relative; min-height: 140px;">
+                <div class="tab-content" id="tab-config" style="display: block;">
+                  <div class="code-line"><span class="kw">const</span> <span class="var">studio</span> <span class="punc">=</span> <span class="punc">{</span></div>
+                  <div class="code-line">&nbsp;&nbsp;name<span class="punc">:</span> <span class="str">"comex"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;focus<span class="punc">:</span> <span class="str">"Creative Development"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;stack<span class="punc">:</span> <span class="punc">[</span><span class="str">"React"</span><span class="punc">,</span> <span class="str">"Three.js"</span><span class="punc">,</span> <span class="str">"Node"</span><span class="punc">],</span></div>
+                  <div class="code-line">&nbsp;&nbsp;mission<span class="punc">:</span> <span class="str">"Craft the extraordinary"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;available<span class="punc">:</span> <span class="bool">true</span></div>
+                  <div class="code-line"><span class="punc">}</span><span class="punc">;</span></div>
+                </div>
+                <div class="tab-content" id="tab-services" style="display: none;">
+                  <div class="code-line"><span class="kw">const</span> <span class="var">services</span> <span class="punc">=</span> <span class="punc">[</span></div>
+                  <div class="code-line">&nbsp;&nbsp;<span class="str">"Interactive 3D WebGL"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;<span class="str">"High-End UI/UX Systems"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;<span class="str">"Creative Engineering"</span></div>
+                  <div class="code-line"><span class="punc">]</span><span class="punc">;</span></div>
+                </div>
+                <div class="tab-content" id="tab-team" style="display: none;">
+                  <div class="code-line"><span class="kw">const</span> <span class="var">team</span> <span class="punc">=</span> <span class="punc">[</span></div>
+                  <div class="code-line">&nbsp;&nbsp;<span class="str">"Firas — Lead Engineer"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;<span class="str">"Sarah Chen — Product Lead"</span><span class="punc">,</span></div>
+                  <div class="code-line">&nbsp;&nbsp;<span class="str">"Marcus Rivera — Creative Dir"</span></div>
+                  <div class="code-line"><span class="punc">]</span><span class="punc">;</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -169,7 +191,7 @@
         <h2 class="section-title reveal reveal-delay-1">Turning complex ideas into elegant interfaces</h2>
         <div class="about-grid">
           <div class="about-img-wrap reveal reveal-delay-1">
-            <img src="https://picsum.photos/seed/comexstudio2/600/750" alt="comex studio workspace">
+            <img src="assets/img/about.png" alt="comex studio workspace">
           </div>
           <div class="about-text">
             <p class="reveal reveal-delay-2">With over 8 years of experience in web development and design, comex specializes in building high-performance applications that don't just work — they leave an impression. We believe the best digital products live at the intersection of engineering excellence and creative storytelling.</p>
@@ -267,6 +289,30 @@
               <a href="#" class="contact-social magnetic" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
               <a href="#" class="contact-social magnetic" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
             </div>
+            
+            <!-- Smarter feature: Client-side Project Cost Estimator -->
+            <div class="project-planner-widget" style="margin-top: 36px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;">
+              <h4 style="font-family:'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--text);">Project Planner &amp; Estimator</h4>
+              <div style="margin-bottom: 16px;">
+                <label style="display: block; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 1px;">PROJECT TYPE</label>
+                <select id="estimator-type" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-family: inherit; font-size: 0.9rem; outline: none; cursor: pointer; transition: border-color 0.3s;">
+                  <option value="web">Web Application</option>
+                  <option value="3d">Immersive 3D Experience</option>
+                  <option value="ui">UI/UX Design System</option>
+                </select>
+              </div>
+              <div style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1px;">ESTIMATED SCOPE</label>
+                  <span id="estimator-hours-val" style="font-size: 0.85rem; font-weight: 700; color: var(--accent);">100 hours</span>
+                </div>
+                <input type="range" id="estimator-hours" min="20" max="300" value="100" style="width: 100%; accent-color: var(--accent); cursor: pointer;">
+              </div>
+              <div style="padding: 16px; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span style="color: var(--text-muted);">Est. Timeline:</span><span id="estimator-timeline" style="font-weight: 600; color: var(--text);">4-6 weeks</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span style="color: var(--text-muted);">Est. Cost Range:</span><span id="estimator-cost" style="font-weight: 700; color: var(--accent);">$8,000 - $12,000</span></div>
+              </div>
+            </div>
           </div>
           <form class="contact-form reveal reveal-delay-3" id="contact-form" novalidate>
             <div class="form-row">
@@ -332,7 +378,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>2024 Comex. All rights reserved.</span>
+        <span>&copy; 2026 Comex. All rights reserved. Created by engineer Firas.</span>
         <div class="footer-socials">
           <a href="#" class="footer-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
           <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -346,6 +392,7 @@
   <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
   <div id="toast-container" aria-live="polite"></div>
 
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

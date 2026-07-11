@@ -1,5 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+      /* ===== LENIS SMOOTH SCROLL ===== */
+      var lenis = new Lenis({
+        duration: 1.2,
+        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Connect Lenis to anchor elements for smooth scroll targets
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = anchor.getAttribute('href');
+          if (targetId === '#') return;
+          var targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            lenis.scrollTo(targetEl, { offset: -80 });
+          }
+        });
+      });
+
       /* ===== DATA ===== */
       var skillsData = [
         { name: 'JavaScript', sub: 'ES6+, TypeScript', percent: 92 },
@@ -11,18 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
       ];
 
       var projectsData = [
-        { title: 'Nova Commerce', desc: 'Full-stack e-commerce platform with real-time inventory, AI-powered recommendations, and a seamless checkout experience.', tags: ['React', 'Node.js', 'PostgreSQL'], category: 'web', img: 'novacommerce3' },
-        { title: 'Stellar Viewer', desc: 'Interactive 3D product configurator allowing users to customize and explore products in real-time 3D space.', tags: ['Three.js', 'WebGL', 'React'], category: 'web', img: 'stellarviewer3' },
-        { title: 'PulseTrack', desc: 'Cross-platform fitness application with workout tracking, social challenges, and health analytics dashboard.', tags: ['React Native', 'Firebase'], category: 'mobile', img: 'pulsetrack3' },
-        { title: 'Lumina Brand System', desc: 'Complete brand identity system including logo, typography, color system, and comprehensive design guidelines.', tags: ['Figma', 'Illustrator'], category: 'design', img: 'luminabrand3' },
-        { title: 'DataFlow Dashboard', desc: 'Real-time analytics dashboard with interactive charts, live data streams, and customizable widget layouts.', tags: ['Vue.js', 'D3.js', 'WebSocket'], category: 'web', img: 'dataflowdash3' },
-        { title: 'Connecta Social', desc: 'Feature-rich social networking app with stories, live messaging, and algorithmic content discovery.', tags: ['Flutter', 'GraphQL'], category: 'mobile', img: 'connectasocial3' }
+        { title: 'Nova Commerce', desc: 'Full-stack e-commerce platform with real-time inventory, AI-powered recommendations, and a seamless checkout experience.', tags: ['React', 'Node.js', 'PostgreSQL'], category: 'web', img: 'assets/img/project-nova.png' },
+        { title: 'Stellar Viewer', desc: 'Interactive 3D product configurator allowing users to customize and explore products in real-time 3D space.', tags: ['Three.js', 'WebGL', 'React'], category: 'web', img: 'assets/img/project-stellar.png' },
+        { title: 'PulseTrack', desc: 'Cross-platform fitness application with workout tracking, social challenges, and health analytics dashboard.', tags: ['React Native', 'Firebase'], category: 'mobile', img: 'assets/img/project-pulse.png' },
+        { title: 'Lumina Brand System', desc: 'Complete brand identity system including logo, typography, color system, and comprehensive design guidelines.', tags: ['Figma', 'Illustrator'], category: 'design', img: 'assets/img/project-lumina.png' },
+        { title: 'DataFlow Dashboard', desc: 'Real-time analytics dashboard with interactive charts, live data streams, and customizable widget layouts.', tags: ['Vue.js', 'D3.js', 'WebSocket'], category: 'web', img: 'assets/img/project-dataflow.png' },
+        { title: 'Connecta Social', desc: 'Feature-rich social networking app with stories, live messaging, and algorithmic content discovery.', tags: ['Flutter', 'GraphQL'], category: 'mobile', img: 'assets/img/project-connecta.svg' }
       ];
 
       var testimonialsData = [
-        { quote: 'Comex transformed our vision into a stunning digital reality. The attention to detail and technical execution exceeded every expectation we had. Our conversion rate jumped 40% after the redesign.', name: 'Sarah Chen', role: 'CEO, TechFlow', avatar: 'sarahchen42', stars: 5 },
-        { quote: 'Working with Comex was a game-changer for our product. They brought a level of polish and interactivity that our users immediately noticed and loved. Truly world-class work.', name: 'Marcus Rivera', role: 'Creative Director, Studio Nine', avatar: 'marcusrivera7', stars: 5 },
-        { quote: 'The attention to detail and creative problem-solving Comex brings to every project is unmatched. They delivered our platform ahead of schedule and it performed flawlessly from day one.', name: 'Elena Kowalski', role: 'Founder, BrightPath', avatar: 'elenakowalski3', stars: 5 }
+        { quote: 'Comex transformed our vision into a stunning digital reality. The attention to detail and technical execution exceeded every expectation we had. Our conversion rate jumped 40% after the redesign.', name: 'Sarah Chen', role: 'CEO, TechFlow', avatar: 'assets/img/avatar-sarah.svg', stars: 5 },
+        { quote: 'Working with Comex was a game-changer for our product. They brought a level of polish and interactivity that our users immediately noticed and loved. Truly world-class work.', name: 'Marcus Rivera', role: 'Creative Director, Studio Nine', avatar: 'assets/img/avatar-marcus.svg', stars: 5 },
+        { quote: 'The attention to detail and creative problem-solving Comex brings to every project is unmatched. They delivered our platform ahead of schedule and it performed flawlessly from day one.', name: 'Elena Kowalski', role: 'Founder, BrightPath', avatar: 'assets/img/avatar-elena.svg', stars: 5 }
       ];
 
       var typingStrings = [
@@ -92,11 +124,16 @@ document.addEventListener('DOMContentLoaded', function() {
       /* ===== MAGNETIC ===== */
       if (!isTouch) {
         document.querySelectorAll('.magnetic').forEach(function(el) {
+          el.style.willChange = 'transform';
           el.addEventListener('mousemove', function(e) {
             var r = el.getBoundingClientRect();
+            el.style.transition = 'none';
             el.style.transform = 'translate(' + ((e.clientX - r.left - r.width/2) * 0.25) + 'px,' + ((e.clientY - r.top - r.height/2) * 0.25) + 'px)';
           });
-          el.addEventListener('mouseleave', function() { el.style.transform = ''; });
+          el.addEventListener('mouseleave', function() {
+            el.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+            el.style.transform = 'translate(0px, 0px)';
+          });
         });
       }
 
@@ -280,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var card = document.createElement('article');
         card.className = 'project-card reveal' + (i ? ' reveal-delay-' + Math.min(i, 5) : '');
         card.setAttribute('data-category', pr.category);
-        card.innerHTML = '<div class="project-img-wrap"><img class="project-img" src="https://picsum.photos/seed/' + pr.img + '/800/500" alt="' + pr.title + '" loading="lazy"><div class="project-overlay"><a href="#" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="#" aria-label="Source code"><i class="fa-brands fa-github"></i></a></div></div><div class="project-info"><div class="project-tags">' + pr.tags.map(function(t) { return '<span class="project-tag">' + t + '</span>'; }).join('') + '</div><h3 class="project-title">' + pr.title + '</h3><p class="project-desc">' + pr.desc + '</p></div>';
+        card.innerHTML = '<div class="project-img-wrap"><img class="project-img" src="' + pr.img + '" alt="' + pr.title + '" loading="lazy"><div class="project-overlay"><a href="#" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="#" aria-label="Source code"><i class="fa-brands fa-github"></i></a></div></div><div class="project-info"><div class="project-tags">' + pr.tags.map(function(t) { return '<span class="project-tag">' + t + '</span>'; }).join('') + '</div><h3 class="project-title">' + pr.title + '</h3><p class="project-desc">' + pr.desc + '</p></div>';
         projGrid.appendChild(card); revealObs.observe(card);
       });
       document.querySelectorAll('.filter-btn').forEach(function(btn) {
@@ -302,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
       testimonialsData.forEach(function(t, i) {
         var sl = document.createElement('div'); sl.className = 'testimonial-slide';
         var stars = ''; for (var s = 0; s < t.stars; s++) stars += '<i class="fa-solid fa-star"></i> ';
-        sl.innerHTML = '<div class="testimonial-stars">' + stars + '</div><p class="testimonial-quote">' + t.quote + '</p><div class="testimonial-author"><img class="testimonial-avatar" src="https://picsum.photos/seed/' + t.avatar + '/120/120" alt="' + t.name + '"><div><div class="testimonial-name">' + t.name + '</div><div class="testimonial-role">' + t.role + '</div></div></div>';
+        sl.innerHTML = '<div class="testimonial-stars">' + stars + '</div><p class="testimonial-quote">' + t.quote + '</p><div class="testimonial-author"><img class="testimonial-avatar" src="' + t.avatar + '" alt="' + t.name + '"><div><div class="testimonial-name">' + t.name + '</div><div class="testimonial-role">' + t.role + '</div></div></div>';
         track.appendChild(sl);
         var d = document.createElement('button'); d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
         d.setAttribute('aria-label', 'Testimonial ' + (i+1)); d.addEventListener('click', function() { goSlide(i); });
@@ -349,5 +386,60 @@ document.addEventListener('DOMContentLoaded', function() {
       var btt = document.getElementById('back-to-top');
       window.addEventListener('scroll', function() { btt.classList.toggle('show', window.scrollY > 600); });
       btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+      /* ===== HERO CARD TAB SWITCHER ===== */
+      var tabs = document.querySelectorAll('.card-tab');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) {
+            t.classList.remove('active');
+            t.style.color = 'var(--text-muted)';
+            t.style.opacity = '0.7';
+          });
+          tab.classList.add('active');
+          tab.style.color = 'var(--accent)';
+          tab.style.opacity = '1';
+          
+          var targetTab = tab.getAttribute('data-tab');
+          document.querySelectorAll('.tab-content').forEach(function(content) {
+            content.style.display = content.id === 'tab-' + targetTab ? 'block' : 'none';
+          });
+        });
+      });
+
+      /* ===== PROJECT ESTIMATOR WIDGET ===== */
+      var estType = document.getElementById('estimator-type');
+      var estHours = document.getElementById('estimator-hours');
+      var estHoursVal = document.getElementById('estimator-hours-val');
+      var estTimeline = document.getElementById('estimator-timeline');
+      var estCost = document.getElementById('estimator-cost');
+
+      function updateEstimation() {
+        if (!estType || !estHours) return;
+        var type = estType.value;
+        var hours = parseInt(estHours.value);
+        estHoursVal.textContent = hours + ' hours';
+
+        var rate = 80; 
+        if (type === 'web') rate = 100;
+        else if (type === '3d') rate = 120;
+
+        var baseCost = hours * rate;
+        var minCost = Math.round(baseCost * 0.9);
+        var maxCost = Math.round(baseCost * 1.15);
+
+        var weeks = Math.max(2, Math.ceil(hours / 25));
+        var minWeeks = weeks;
+        var maxWeeks = weeks + 2;
+
+        estTimeline.textContent = minWeeks + '-' + maxWeeks + ' weeks';
+        estCost.textContent = '$' + minCost.toLocaleString() + ' - $' + maxCost.toLocaleString();
+      }
+
+      if (estType && estHours) {
+        estType.addEventListener('change', updateEstimation);
+        estHours.addEventListener('input', updateEstimation);
+        updateEstimation();
+      }
 
     });

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0B14" />
+      <stop offset="100%" stop-color="#111120" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E89D" />
+      <stop offset="100%" stop-color="#74B9FF" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)" />
+  <!-- Grid overlay -->
+  <g opacity="0.15">
+    <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350 M 0,400 L 800,400 M 0,450 L 800,450" stroke="#44446A" stroke-width="1"/>
+    <path d="M 100,0 L 100,500 M 200,0 L 200,500 M 300,0 L 300,500 M 400,0 L 400,500 M 500,0 L 500,500 M 600,0 L 600,500 M 700,0 L 700,500" stroke="#44446A" stroke-width="1"/>
+  </g>
+  
+  <!-- Glowing connection circles -->
+  <g opacity="0.75">
+    <line x1="250" y1="250" x2="400" y2="150" stroke="#00E89D" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="400" y1="150" x2="550" y2="250" stroke="#74B9FF" stroke-width="2"/>
+    <line x1="250" y1="250" x2="400" y2="350" stroke="#74B9FF" stroke-width="2"/>
+    <line x1="400" y1="350" x2="550" y2="250" stroke="#00E89D" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="400" y1="150" x2="400" y2="350" stroke="#EDEDF4" stroke-width="1" opacity="0.3"/>
+    
+    <circle cx="250" cy="250" r="40" fill="#1A1A2E" stroke="#00E89D" stroke-width="3" />
+    <circle cx="400" cy="150" r="30" fill="#1A1A2E" stroke="#74B9FF" stroke-width="3" />
+    <circle cx="550" cy="250" r="40" fill="#1A1A2E" stroke="#00E89D" stroke-width="3" />
+    <circle cx="400" cy="350" r="35" fill="#1A1A2E" stroke="#EDEDF4" stroke-width="2" />
+    
+    <text x="250" y="256" font-family="'Syne', sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#00E89D">User</text>
+    <text x="400" y="156" font-family="'Syne', sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#74B9FF">Node</text>
+    <text x="550" y="256" font-family="'Syne', sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#00E89D">Chat</text>
+    <text x="400" y="356" font-family="'Syne', sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#EDEDF4">Feed</text>
+  </g>
+  
+  <text x="400" y="450" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="url(#accentGrad)" letter-spacing="4">CONNECTA SOCIAL</text>
+</svg>
